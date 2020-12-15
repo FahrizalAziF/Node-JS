@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block title %} List Mahasiswa {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-3">List Mahasiswa</h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">NIM</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Prodi</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in data %}
+            <tr>
+                <th scope="row">1</th>
+                <td>{{d.nim}}</td>
+                <td>{{d.nama}}</td>
+                <td>{{d.prodi}}</td>
+                <td>
+                    <a class="btn btn-primary" href="/update/{{d.nim}}">Edit</a>
+                    <a class="btn btn-danger" onclick="return confirm('Are you sure?')"
+                        href="/delete/{{d.nim}}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}
